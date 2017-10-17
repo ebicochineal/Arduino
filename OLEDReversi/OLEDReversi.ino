@@ -6,15 +6,15 @@ U8GLIB_SSD1306_128X64 u8g(10, 9, 12, 11, 13); // SPI
 
 const byte swich_pin = 16;
 
-byte g_nbw[8][8];// 0–³ 1• 2”’
+byte g_nbw[8][8];// 0ç„¡ 1é»’ 2ç™½
 
-byte g_cp;// ‹îˆÊ’u
-bool g_cs;// •”Ô0‚©”’”Ô1‚©
-byte g_cf;// ‹î‚Ì“_–ÅƒtƒŒ[ƒ€‚R‚O
-byte g_cb = 0;// ƒuƒŠƒ“ƒNó‘Ô
-byte g_bcount;// ‰Ÿ‚µŽžŠÔ‚ðƒJƒEƒ“ƒg byte‚Ì‚½‚ß‚R‚OˆÈã‚È‚ç‚R‚O‚É–ß‚·
-bool g_bf;// ƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚Ä‚¢‚½‚©
-bool g_end;// I—¹ƒtƒ‰ƒO
+byte g_cp;// é§’ä½ç½®
+bool g_cs;// é»’ç•ª0ã‹ç™½ç•ª1ã‹
+byte g_cf;// é§’ã®ç‚¹æ»…ãƒ•ãƒ¬ãƒ¼ãƒ ï¼“ï¼
+byte g_cb = 0;// ãƒ–ãƒªãƒ³ã‚¯çŠ¶æ…‹
+byte g_bcount;// æŠ¼ã—æ™‚é–“ã‚’ã‚«ã‚¦ãƒ³ãƒˆ byteã®ãŸã‚ï¼“ï¼ä»¥ä¸Šãªã‚‰ï¼“ï¼ã«æˆ»ã™
+bool g_bf;// ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã„ãŸã‹
+bool g_end;// çµ‚äº†ãƒ•ãƒ©ã‚°
 
 byte g_move_pos[64];
 byte g_move_max;
@@ -167,10 +167,10 @@ void NextTurn() {
 
     g_cs = !g_cs;
     MovePointInit();
-    if (g_move_max > 0) { return; }// ƒpƒX‚P‰ñ–Ú
+    if (g_move_max > 0) { return; }// ãƒ‘ã‚¹ï¼‘å›žç›®
     g_cs = !g_cs;
     MovePointInit();
-    if (g_move_max > 0) { return; }// ƒpƒX‚Q‰ñ–Ú
+    if (g_move_max > 0) { return; }// ãƒ‘ã‚¹ï¼’å›žç›®
     g_end = true;
 }
 
