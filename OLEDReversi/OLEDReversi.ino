@@ -4,6 +4,8 @@ U8GLIB_SSD1306_128X64 u8g(10, 9, 12, 11, 13); // SPI
 
 // G V 10 9 13 11 12
 
+const byte swich_pin = 16;
+
 byte g_nbw[8][8];// 0–³ 1• 2”’
 
 byte g_cp;// ‹îˆÊ’u
@@ -21,20 +23,10 @@ byte g_move_index;
 
 
 void setup() {
-    if (u8g.getMode() == U8G_MODE_R3G3B2) {
-        u8g.setColorIndex(255);     // white
-    }
-    else if (u8g.getMode() == U8G_MODE_GRAY2BIT) {
-        u8g.setColorIndex(3);         // max intensity
-    }
-    else if (u8g.getMode() == U8G_MODE_BW) {
-        u8g.setColorIndex(1);         // pixel on
-    }
-    else if (u8g.getMode() == U8G_MODE_HICOLOR) {
-        u8g.setHiColorByRGB(255, 255, 255);
-    }
+    u8g.setColorIndex(1);
+    u8g.setContrast(0);
     
-    pinMode(18, INPUT_PULLUP);
+    pinMode(swich_pin, INPUT_PULLUP);
 
     g_nbw[3][3] = 2;
     g_nbw[3][4] = 1;
@@ -138,7 +130,7 @@ void ReverseLine(int py, int px, int my, int mx) {
 
 bool Button() {
     bool f = false;
-    if (digitalRead(18) == 0) {
+    if (digitalRead(swich_pin) == 0) {
         g_bf = true;
         g_bcount += 1;
         if (g_bcount > 29) {

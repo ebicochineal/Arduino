@@ -4,7 +4,7 @@ const static byte cols[8] = {pins[13],pins[ 3],pins[ 4],pins[10],pins[ 6],pins[1
 const static byte rows[8] = {pins[ 9],pins[14],pins[ 8],pins[12],pins[ 1],pins[ 7],pins[ 2],pins[ 5]};
 
 // tone pin 19
-
+const byte swich_pin = 18;
 
 byte g_nbw[8][8];// 0無 1黒 2白
 
@@ -26,7 +26,7 @@ void setup() {
     for(byte i=0;i<= 8;i++) digitalWrite(cols[i], LOW);
     for(byte i=0;i<= 8;i++) digitalWrite(rows[i], LOW);
     
-    pinMode(18, INPUT_PULLUP);
+    pinMode(swich_pin, INPUT_PULLUP);
     
     g_nbw[3][3] = 2;
     g_nbw[3][4] = 1;
@@ -131,7 +131,7 @@ void ReverseLine(int py, int px, int my, int mx){
 }
 
 void Button(){
-    if(digitalRead(18) == 0){
+    if(digitalRead(swich_pin) == 0){
         g_bf = true;
         g_bcount += 1;
         if(g_bcount > 29){ g_bcount = 30; }

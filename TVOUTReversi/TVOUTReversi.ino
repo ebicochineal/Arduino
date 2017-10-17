@@ -3,6 +3,8 @@
 
 TVout TV;
 
+const byte swich_pin = 16;
+
 byte g_nbw[8][8];// 0無 1黒 2白
 
 byte g_cp;// 駒位置
@@ -22,7 +24,7 @@ void setup() {
     TV.begin(NTSC);
     TV.select_font(font6x8);
 
-    pinMode(18, INPUT_PULLUP);
+    pinMode(swich_pin, INPUT_PULLUP);
     
     g_nbw[3][3] = 2;
     g_nbw[3][4] = 1;
@@ -135,7 +137,7 @@ void ReverseLine(int py, int px, int my, int mx){
 
 bool Button(){
     bool f = false;
-    if(digitalRead(18) == 0){
+    if(digitalRead(swich_pin) == 0){
         g_bf = true;
         g_bcount += 1;
         if(g_bcount > 29){
