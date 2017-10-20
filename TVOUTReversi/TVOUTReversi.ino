@@ -11,7 +11,7 @@ byte g_cp;// 駒位置
 bool g_cs;// 黒番0か白番1か
 byte g_cf;// 駒の点滅フレーム３０
 bool g_cb;// ブリンク状態
-byte g_bcount;// 押し時間をカウント byteのため３０以上なら３０に戻す
+byte g_bcount;// 押し時間をカウント
 bool g_bf;// ボタンを押していたか
 bool g_end;// 終了フラグ
 
@@ -217,15 +217,11 @@ void DrawEnd(){
     int b = 0;
     for (byte y = 0; y<8; ++y) {
         for (byte x = 0; x<8; ++x) {
-            if (g_nbw[y][x] == 0) {
-                
-            }
-            else {
+            if (g_nbw[y][x] != 0) {
                 TV.draw_circle(n + 5 + n * x, n + 5 + n * y, 3, 1, g_nbw[y][x] == 1 ? 0 : 1);
                 if (g_nbw[y][x] == 1) {
                     b += 1;
-                }
-                else {
+                } else {
                     w += 1;
                 }
             }
@@ -239,7 +235,6 @@ void Grid() {
     char n = 10;
     for (int x = 0; x < 9; x++) {
         TV.draw_line(n, n*x + n, n * 9, n*x + n, 1);
-
     }
     for (int y = 0; y < 9; y++) {
         TV.draw_line(n*y + n, n, n*y + n, n * 9, 1);

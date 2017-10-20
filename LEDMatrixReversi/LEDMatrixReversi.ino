@@ -12,7 +12,7 @@ byte g_cp;// 駒位置
 bool g_cs;// 黒番0か白番1か
 byte g_cf;// 駒の点滅フレーム３０
 bool g_cb;// ブリンク状態
-byte g_bcount;// 押し時間をカウント byteのため３０以上なら３０に戻す
+byte g_bcount;// 押し時間をカウント
 bool g_bf;// ボタンを押していたか
 bool g_end;// 終了フラグ
 
@@ -139,7 +139,7 @@ void Button(){
         if(g_bf){
             if(g_bcount > 29){
                 NextTurn();
-            }else{
+            } else {
                 MovePos();
             }
         }
