@@ -183,11 +183,11 @@ void Draw() {
         for (byte x = 0; x<8; ++x) {
             if (g_nbw[y][x] != 0) {
                 u8g.drawCircle(9 + n * x, 9 + n * y, 2);
-                if (g_nbw[y][x] == 1) {
+                if (g_nbw[y][x] == 2) {
                     u8g.drawBox(8 + n * x, 8 + n * y, 3, 3);
-                    ++b;
-                } else {
                     ++w;
+                } else {
+                    ++b;
                 }
             }
         }
